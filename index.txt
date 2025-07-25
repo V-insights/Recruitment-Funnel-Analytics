@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruitment Funnel Analytics</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e1a1f;
+      color: #e3fdfd;
+    }
+    header {
+      background-color: #1f2f3d;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #3c5b6f;
+    }
+    header h1 {
+      margin: 0;
+      color: #00c3a0;
+    }
+    nav {
+      background-color: #15232e;
+      padding: 10px 40px;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #90e0ef;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #98f5e1;
+    }
+    .screenshot {
+      width: 100%;
+      border: 2px solid #00c3a0;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a2e35;
+      color: #cfd8dc;
+      border-top: 1px solid #3c5b6f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recruitment Funnel Analytics</h1>
+    <p>Using Data Science to Understand and Improve Hiring Processes</p>
+  </header>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#model">Model</a>
+    <a href="#files">Files</a>
+  </nav>
+  <section id="overview">
+    <h2>📌 Project Overview</h2>
+    <p>This project analyzes a recruitment dataset to uncover insights across different hiring stages and predict candidate hiring outcomes using machine learning. The final result is an interactive dashboard that simplifies understanding of the recruitment funnel.</p>
+  </section>
+
+  <section id="dashboard">
+    <h2>📊 Power BI Dashboard</h2>
+    <img src="dashboard_screenshot.png" alt="Dashboard Screenshot" class="screenshot" />
+    <p>The dashboard provides insights on:</p>
+    <ul>
+      <li>Drop-off at each recruitment stage</li>
+      <li>Hiring trends by experience, education, gender</li>
+      <li>Predicted hiring outcomes</li>
+    </ul>
+  </section>
+
+  <section id="model">
+    <h2>🤖 ML Model Summary</h2>
+    <p>A Random Forest classifier was trained to predict hiring outcomes with an accuracy of 78.28% on the training data. Features included education level, major, experience, company size, and more.</p>
+  </section>
+
+  <section id="files">
+    <h2>📁 Project Files</h2>
+    <ul>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics">GitHub Repository</a></li>
+      <li>📓 <code>recruitment_model.ipynb</code> - Python code for EDA and model</li>
+      <li>📊 <code>Recruitment_Funnel.pbix</code> - Power BI Dashboard</li>
+      <li>📂 <code>data/</code> - Includes <code>aug_train.csv</code>, <code>aug_test.csv</code>, and <code>sample_submission.csv</code></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Created by Vaishali Patel | Powered by GitHub Pages</p>
+  </footer>
+</body>
+</html>
