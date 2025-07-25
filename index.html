@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recruitment Funnel Analytics</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0e1a1f;
-      color: #e3fdfd;
+      background-color: #1e1b2f;
+      color: #f3f3f3;
     }
     header {
-      background-color: #1f2f3d;
-      padding: 20px 40px;
+      background-color: #3d2e56;
+      padding: 20px;
       text-align: center;
-      border-bottom: 1px solid #3c5b6f;
     }
     header h1 {
       margin: 0;
-      color: #00c3a0;
+      color: #caa6ff;
     }
     nav {
-      background-color: #15232e;
-      padding: 10px 40px;
+      background-color: #2e1f44;
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
     }
     nav a {
-      color: #90e0ef;
+      color: #f3f3f3;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 16px;
+      background-color: #4b3772;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
-    section {
-      padding: 40px;
+    nav a:hover {
+      background-color: #6a4dad;
+    }
+    .tabcontent {
+      display: none;
+      padding: 30px;
       max-width: 1000px;
       margin: auto;
     }
-    h2 {
-      color: #98f5e1;
+    .active {
+      display: block;
     }
     .screenshot {
       width: 100%;
-      border: 2px solid #00c3a0;
       border-radius: 8px;
-      margin-top: 10px;
+      margin-top: 20px;
+      border: 2px solid #caa6ff;
     }
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #1a2e35;
-      color: #cfd8dc;
-      border-top: 1px solid #3c5b6f;
+      background-color: #291d3c;
+      color: #ccc;
     }
   </style>
 </head>
@@ -61,21 +68,20 @@
     <p>Using Data Science to Understand and Improve Hiring Processes</p>
   </header>
   <nav>
-    <a href="#overview">Overview</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#model">Model</a>
-    <a href="#files">Files</a>
+    <a href="#" onclick="openTab(event, 'overview')">Overview</a>
+    <a href="#" onclick="openTab(event, 'dashboard')">Dashboard</a>
+    <a href="#" onclick="openTab(event, 'model')">Model</a>
+    <a href="#" onclick="openTab(event, 'files')">Files</a>
   </nav>
 
-  <section id="overview">
-    <h2>📌 Project Overview</h2>
+  <section id="overview" class="tabcontent active">
+    <h2>Project Overview</h2>
     <p>This project analyzes a recruitment dataset to uncover insights across different hiring stages and predict candidate hiring outcomes using machine learning. The final result is an interactive dashboard that simplifies understanding of the recruitment funnel.</p>
   </section>
 
-  <section id="dashboard">
-    <h2>📊 Power BI Dashboard</h2>
-    <img src="Recruitment_Funnel_Insights.png" alt="Dashboard Screenshot" class="screenshot" />
-    <p>The dashboard provides insights on:</p>
+  <section id="dashboard" class="tabcontent">
+    <h2>Power BI Dashboard</h2>
+    <img src="Recruitment_Funnel_Insights.png" alt="Dashboard Screenshot" class="screenshot">
     <ul>
       <li>Drop-off at each recruitment stage</li>
       <li>Hiring trends by experience, education, gender</li>
@@ -83,49 +89,35 @@
     </ul>
   </section>
 
-  <section id="model">
-    <h2>🤖 ML Model Summary</h2>
+  <section id="model" class="tabcontent">
+    <h2>ML Model Summary</h2>
     <p>A Random Forest classifier was trained to predict hiring outcomes with an accuracy of 78.28% on the training data. Features included education level, major, experience, company size, and more.</p>
   </section>
 
-  <section id="files">
-    <h2>📁 Project Files</h2>
+  <section id="files" class="tabcontent">
+    <h2>Download Project Files</h2>
     <ul>
-      <li>
-        <a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/recruitment_model%20(1).ipynb" download>
-          📓 Download Jupyter Notebook (.ipynb)
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/Recruitment_Funnel.pbix" download>
-          📊 Download Power BI Dashboard (.pbix)
-        </a>
-      </li>
-      <li>
-        📂 Download Dataset Files:
-        <ul>
-          <li>
-            <a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_train.csv" download>
-              📄 aug_train.csv
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_test.csv" download>
-              📄 aug_test.csv
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/sample_submission.csv" download>
-              📄 sample_submission.csv
-            </a>
-          </li>
-        </ul>
-      </li>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/recruitment_model%20(1).ipynb" download>📓 Download Jupyter Notebook (.ipynb)</a></li>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/Recruitment_Funnel.pbix" download>📊 Download Power BI Dashboard (.pbix)</a></li>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_train.csv" download>📄 aug_train.csv</a></li>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_test.csv" download>📄 aug_test.csv</a></li>
+      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/sample_submission.csv" download>📄 sample_submission.csv</a></li>
     </ul>
   </section>
 
   <footer>
     <p>Created by Vaishali Patel | Powered by GitHub Pages</p>
   </footer>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, navlinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+    }
+  </script>
 </body>
 </html>
