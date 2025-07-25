@@ -1,66 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recruitment Funnel Analytics</title>
   <style>
+    :root {
+      --primary-color: #4b3772;
+      --secondary-color: #6a4dad;
+      --bg-color: #f3f1f8;
+      --text-color: #2b1e45;
+      --accent-color: #957dad;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #1e1b2f;
-      color: #f3f3f3;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
+
     header {
-      background-color: #3d2e56;
-      padding: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px 40px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+
     header h1 {
       margin: 0;
-      color: #caa6ff;
     }
+
     nav {
-      background-color: #2e1f44;
+      background-color: var(--secondary-color);
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
+      gap: 20px;
+      padding: 12px 0;
     }
+
     nav a {
-      color: #f3f3f3;
+      color: white;
       text-decoration: none;
       font-weight: bold;
       padding: 8px 16px;
-      background-color: #4b3772;
       border-radius: 5px;
-      transition: background 0.3s;
     }
+
     nav a:hover {
-      background-color: #6a4dad;
+      background-color: var(--accent-color);
     }
-    .tabcontent {
+
+    section {
       display: none;
-      padding: 30px;
+      padding: 40px;
       max-width: 1000px;
       margin: auto;
     }
-    .active {
+
+    section.active {
       display: block;
     }
+
+    h2 {
+      color: var(--primary-color);
+    }
+
     .screenshot {
       width: 100%;
+      border: 2px solid var(--primary-color);
       border-radius: 8px;
-      margin-top: 20px;
-      border: 2px solid #caa6ff;
+      margin-top: 10px;
     }
+
+    .download-btn {
+      display: inline-block;
+      margin: 8px 5px;
+      padding: 10px 16px;
+      background-color: var(--secondary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background-color: var(--accent-color);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #291d3c;
-      color: #ccc;
+      background-color: var(--primary-color);
+      color: white;
     }
   </style>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    window.onload = () => showSection('overview');
+  </script>
 </head>
 <body>
   <header>
@@ -68,20 +110,20 @@
     <p>Using Data Science to Understand and Improve Hiring Processes</p>
   </header>
   <nav>
-    <a href="#" onclick="openTab(event, 'overview')">Overview</a>
-    <a href="#" onclick="openTab(event, 'dashboard')">Dashboard</a>
-    <a href="#" onclick="openTab(event, 'model')">Model</a>
-    <a href="#" onclick="openTab(event, 'files')">Files</a>
+    <a href="#" onclick="showSection('overview')">Overview</a>
+    <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+    <a href="#" onclick="showSection('model')">Model</a>
+    <a href="#" onclick="showSection('files')">Files</a>
   </nav>
 
-  <section id="overview" class="tabcontent active">
+  <section id="overview">
     <h2>Project Overview</h2>
     <p>This project analyzes a recruitment dataset to uncover insights across different hiring stages and predict candidate hiring outcomes using machine learning. The final result is an interactive dashboard that simplifies understanding of the recruitment funnel.</p>
   </section>
 
-  <section id="dashboard" class="tabcontent">
+  <section id="dashboard">
     <h2>Power BI Dashboard</h2>
-    <img src="Recruitment_Funnel_Insights.png" alt="Dashboard Screenshot" class="screenshot">
+    <img src="Recruitment_Funnel_Insights.png" alt="Dashboard Screenshot" class="screenshot" />
     <ul>
       <li>Drop-off at each recruitment stage</li>
       <li>Hiring trends by experience, education, gender</li>
@@ -89,35 +131,23 @@
     </ul>
   </section>
 
-  <section id="model" class="tabcontent">
+  <section id="model">
     <h2>ML Model Summary</h2>
     <p>A Random Forest classifier was trained to predict hiring outcomes with an accuracy of 78.28% on the training data. Features included education level, major, experience, company size, and more.</p>
   </section>
 
-  <section id="files" class="tabcontent">
-    <h2>Download Project Files</h2>
-    <ul>
-      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/recruitment_model%20(1).ipynb" download>📓 Download Jupyter Notebook (.ipynb)</a></li>
-      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/Recruitment_Funnel.pbix" download>📊 Download Power BI Dashboard (.pbix)</a></li>
-      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_train.csv" download>📄 aug_train.csv</a></li>
-      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_test.csv" download>📄 aug_test.csv</a></li>
-      <li><a href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/sample_submission.csv" download>📄 sample_submission.csv</a></li>
-    </ul>
+  <section id="files">
+    <h2>Project Files</h2>
+    <a class="download-btn" href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/recruitment_model%20(1).ipynb" download>📓 Download Jupyter Notebook (.ipynb)</a>
+    <a class="download-btn" href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/Recruitment_Funnel.pbix" download>📊 Download Power BI Dashboard (.pbix)</a>
+    <br><br>
+    <a class="download-btn" href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_train.csv" download>📄 aug_train.csv</a>
+    <a class="download-btn" href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/aug_test.csv" download>📄 aug_test.csv</a>
+    <a class="download-btn" href="https://github.com/V-insights/Recruitment-Funnel-Analytics/raw/main/data/sample_submission.csv" download>📄 sample_submission.csv</a>
   </section>
 
   <footer>
     <p>Created by Vaishali Patel | Powered by GitHub Pages</p>
   </footer>
-
-  <script>
-    function openTab(evt, tabName) {
-      var i, tabcontent, navlinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].classList.remove("active");
-      }
-      document.getElementById(tabName).classList.add("active");
-    }
-  </script>
 </body>
 </html>
